@@ -485,14 +485,12 @@ const App: React.FC = () => {
               Obrigado, <strong>{formData.name.split(' ')[0]}</strong>! <br />
               Seus dados foram enviados. Nosso <strong>Vendedor Elite</strong> já recebeu suas informações e em breve falará com você no WhatsApp.
             </p>
-            <div className="p-5 bg-green-50 rounded-2xl text-green-800 font-bold border border-green-200">
-              Prepare-se para transformar seu WhatsApp! 📱
+            <div className="p-8 bg-green-50 rounded-3xl text-green-800 font-bold border border-green-200 shadow-sm">
+              <p className="text-xl">Diagnóstico enviado com sucesso! 🚀</p>
+              <p className="text-sm mt-2 font-medium opacity-80">Fique atento ao seu WhatsApp, entraremos em contato em breve.</p>
             </div>
-            <button onClick={() => window.location.href = "https://wa.me/5511999999999?text=Oi, finalizei o diagnóstico e quero saber mais!"} className="w-full bg-green-500 text-white font-black py-5 rounded-2xl shadow-xl flex items-center justify-center gap-2 text-xl hover:bg-green-600 transition-colors uppercase tracking-tight">
-              Falar com Consultor Agora
-            </button>
-            <button onClick={() => window.location.reload()} className="w-full text-gray-400 font-bold py-2 text-sm underline hover:text-gray-600 transition-colors">
-              Refazer Diagnóstico
+            <button onClick={() => window.location.reload()} className="w-full text-green-600 font-black py-4 text-sm uppercase tracking-widest hover:text-green-800 transition-colors">
+              Página Inicial
             </button>
           </div>
         );
