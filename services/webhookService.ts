@@ -5,16 +5,26 @@ const WEBHOOK_URL = 'https://autonomia-n8n-webhook.w8liji.easypanel.host/webhook
 
 export const sendLeadToWebhook = async (lead: LeadData): Promise<boolean> => {
   const timestamp = new Date().toISOString();
-  
+
   // Constructing exactly the format requested by the user
-  const payload: WebhookPayload[] = [
+  const payload = [
     {
       headers: {
         "host": "autonomia-n8n-webhook.w8liji.easypanel.host",
         "user-agent": "BotConversa-Partner-Webhook/1.0",
+        "content-length": "330",
+        "accept": "*/*",
+        "accept-encoding": "gzip,br",
+        "accept-language": "*",
         "content-type": "application/json",
+        "x-forwarded-for": "15.228.201.163",
+        "x-forwarded-host": "autonomia-n8n-webhook.w8liji.easypanel.host",
+        "x-forwarded-port": "443",
+        "x-forwarded-proto": "https",
+        "x-forwarded-server": "7c5272ed28e3",
+        "x-real-ip": "15.228.201.163",
         "x-webhook-event": "lead.distributed",
-        "x-webhook-test": "false"
+        "x-webhook-test": "true"
       },
       params: {},
       query: {},
@@ -22,6 +32,7 @@ export const sendLeadToWebhook = async (lead: LeadData): Promise<boolean> => {
         event: "lead.distributed",
         lead: {
           ...lead,
+          phone: lead.phone.startsWith('+') ? lead.phone : `+${lead.phone}`,
           created_at: timestamp
         },
         timestamp: timestamp
